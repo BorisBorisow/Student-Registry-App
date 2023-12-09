@@ -11,10 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout the code
+      uses: actions/checkout@v3
     - name: Use Node.js 18
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: 18.x 
         cache: 'npm'
-    - run: npm install
+    - name: Build the app
+      run: npm install
+    - name: Run the integrations tests
+      run: npm test
+
